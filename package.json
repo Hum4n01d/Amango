@@ -1,8 +1,9 @@
 {
-  "name": "SCManager",
+  "name": "Amango",
   "version": "1.0.0",
+  "description": "Amango - Manage your accounts!",
   "main": "main.js",
-  "repository": "https://github.com/scmanager/scmanager",
+  "repository": "https://github.com/Amangoapp/Amango.git",
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
@@ -10,7 +11,9 @@
     "dev": "nodemon --exec electron ."
   },
   "dependencies": {
-    "electron": "^1.6.2"
+    "electron-prebuilt-compile": "^1.6.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

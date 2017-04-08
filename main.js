@@ -10,11 +10,12 @@ app.on('ready', function() {
     width: 1200,
     height: 800,
     show: false,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    fullscreen: true
   })
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'frontend/index.html'),
+    pathname: path.join(__dirname, 'renderer/index.jade'),
     protocol: 'file:',
     slashes: true
   }))
