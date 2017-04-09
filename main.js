@@ -5,13 +5,13 @@ const url = require('url')
 
 let mainWindow
 
-app.on('ready', function() {
+function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     show: false,
     titleBarStyle: 'hidden',
-    fullscreen: true
+    // fullscreen: true
   })
 
   mainWindow.loadURL(url.format({
@@ -26,7 +26,9 @@ app.on('ready', function() {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
-})
+}
+
+app.on('ready', createWindow)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {

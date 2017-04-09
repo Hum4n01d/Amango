@@ -7,15 +7,21 @@
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "start": "electron .",
-    "dev": "nodemon --exec electron ."
+    "start:electron": "electron .",
+    "start:server": "next",
+    "dev:electron": "nodemon . --ignore ./renderer --exec electron"
   },
   "dependencies": {
     "electron-prebuilt-compile": "^1.6.2",
+    "normalize.css": "^6.0.0",
+    "prop-types": "^15.5.4",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-electron-web-view": "^2.0.1",
+    "react-tabs": "^0.8.2"
   },
   "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1",
     "nodemon": "^1.11.0"
   }
 }
