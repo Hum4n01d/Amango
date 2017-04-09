@@ -5,8 +5,14 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import WebView from 'react-electron-web-view'
 
 class Application extends Component {
+  PropTypes = {
+    initalTabs: PropTypes.array.isRequired
+  }
   constructor(props) {
     super(props)
+  }
+  handleSelect(index, last) {
+    console.log(`Tab ${index} selected`)
   }
   componentDidMount() {
 
@@ -18,6 +24,7 @@ class Application extends Component {
 
         <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true}>
           <TabList>
+            <Tab>Amango</Tab>
             {
               this.props.initalTabs.map((site, index) => {
                 return (
@@ -25,8 +32,12 @@ class Application extends Component {
                 )
               })
             }
+            <Tab>+</Tab>
           </TabList>
 
+          <TabPanel>
+            <p>Amango Info</p>
+          </TabPanel>
           {
             this.props.initalTabs.map((site, index) => {
               return (
@@ -37,12 +48,12 @@ class Application extends Component {
             })
           }
         </Tabs>
+        
+        {/* Invisible tab for new tab */}
+        <TabPanel></TabPanel>
       </div>
     )
   }
-}
-Application.PropTypes = {
-  initalTabs: PropTypes.array.isRequired
 }
 
 export default Application
