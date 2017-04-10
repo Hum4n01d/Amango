@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dev": "nodemon . --ignore ./src/renderer --exec electron"
+    "dev": "nodemon ./src/main.js --ignore ./src/renderer --exec electron"
   },
   "dependencies": {
     "electron-prebuilt-compile": "^1.6.2",

@@ -1,4 +1,5 @@
-const {BrowserWindow, app} = require('electron')
+const { BrowserWindow, app } = require('electron')
+const { enableLiveReload } = require('electron-compile');
 
 const path = require('path')
 const url = require('url')
@@ -6,23 +7,25 @@ const url = require('url')
 let mainWindow
 
 function createWindow() {
+  enableLiveReload({strategy: 'react-hmr'});
+
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     show: false,
-    titleBarStyle: 'hidden',
-    // fullscreen: true
+    titleBarStyle: 'hidden'
   })
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'renderer/index.jade'),
+    pathname: path.join(__dirname, '/renderer/index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   mainWindow.once('ready-to-show', () => {
-      mainWindow.show()
-      mainWindow.webContents.openDevTools()
+    mainWindow.show()
+    mainWindow.webContents.openDevTools()
+    
   })
   mainWindow.on('closed', function () {
     mainWindow = null
