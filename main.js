@@ -1,4 +1,5 @@
-const {BrowserWindow, app} = require('electron')
+const { BrowserWindow, app } = require('electron')
+const { enableLiveReload } = require('electron-compile');
 
 const path = require('path')
 const url = require('url')
@@ -6,6 +7,8 @@ const url = require('url')
 let mainWindow
 
 function createWindow() {
+  enableLiveReload({strategy: 'react-hmr'});
+
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -20,8 +23,9 @@ function createWindow() {
   }))
 
   mainWindow.once('ready-to-show', () => {
-      mainWindow.show()
-      mainWindow.webContents.openDevTools()
+    mainWindow.show()
+    mainWindow.webContents.openDevTools()
+    
   })
   mainWindow.on('closed', function () {
     mainWindow = null

@@ -10,7 +10,7 @@ class TabsArea extends Component {
   }
   constructor(props) {
     super(props)
-    // Tabs.setUseDefaultStyles(false)
+    Tabs.setUseDefaultStyles(false)
   }
   handleSelect(index, last) {
     console.log(`Tab ${index} selected`)
