@@ -6,7 +6,17 @@ import Application from './components/Application'
 import { AppContainer } from 'react-hot-loader';
 
 const savePath = join(__dirname, "save/tabs.json")
-const initalTabs = JSON.parse(readFileSync(savePath).toString()).tabs
+const initalTabs = [
+  {
+    title: "Amango",
+    url: join(__dirname, 'templates/info.html')
+  },
+  ...JSON.parse(readFileSync(savePath).toString()).tabs,
+  {
+    title: "+",
+    url: join(__dirname, 'templates/info.html')
+  }
+]
 
 const renderApp = () => {
   const Application = require('./components/Application').default

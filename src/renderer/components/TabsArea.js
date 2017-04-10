@@ -8,31 +8,33 @@ class TabsArea extends Component {
   PropTypes = {
     initalTabs: PropTypes.array.isRequired
   }
+  state = {
+    tabs: this.props.initalTabs
+  }
   constructor(props) {
     super(props)
     Tabs.setUseDefaultStyles(false)
+
+    this.handleSelect = this.handleSelect.bind(this)
   }
   handleSelect(index, last) {
     console.log(`Tab ${index} selected`)
+    if (index === this.state.tabs.length) {
+      console.log('new tab pressed')
+    }
   }
   render() {
     return (
       <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true}>
         <TabList>
-          <Tab>Amango</Tab>
           {
-            this.props.initalTabs.map((site, index) => {
+            this.state.tabs.map((site, index) => {
               return (
                 <Tab key={index}>{site.title}</Tab>
               )
             })
           }
-          <Tab>+</Tab>
         </TabList>
-
-        <TabPanel>
-          <p>Amango Info!</p>
-        </TabPanel>
         {
           this.props.initalTabs.map((site, index) => {
             return (
@@ -42,8 +44,6 @@ class TabsArea extends Component {
             )
           })
         }
-        {/* Invisible tab for new tab */}
-        <TabPanel>New Tab</TabPanel>
       </Tabs>
     )
   }
