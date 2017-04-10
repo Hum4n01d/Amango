@@ -1,3 +1,5 @@
+# WARNING: This app is still in development and no releases have been made yet. Install at your own risk.
+
 # Amango
 > Do you have multiple Twitter or Facebook accounts? Do you struggle to stay on top of all your communication channels? Amango is the app for you 
 
