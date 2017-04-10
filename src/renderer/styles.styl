@@ -1,63 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2')
 
-color1 = #7796cb
-color2 = #2a4494
-color3 = #f2f2f2
-color4 = #4c6085
-color5 = #34425b
+// Colors
+tabBg = #7FB069
+activeTab = #FFF3B0
+background = #00A878
 
+// Basic stuff
 body
   font-family: 'Exo 2', 'Roboto', Helvetica, Arial, sans-serif
-  background-color color1
+  background-color background
   margin: 0
-
-body
   height 100vh
 
+// Title bar
 header
   height: 22px
   background-color: color2
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
+  -webkit-user-select: none
+  -webkit-app-region: drag
 
   &.fullscreen
     height: 0
 
-.react-tabs [role=tablist] {
-  margin: 0 0 10px;
-  padding: 0;
-}
+// Tabs
+.react-tabs [role=tablist] 
+  margin: 0 0 10px
+  padding: 0
 
-.react-tabs [role=tab] {
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+  // All tabs
+  [role=tab] 
+    display: inline-block
+    padding: 6px 12px
+    cursor: pointer
+    background-color: tabBg
 
-.react-tabs [role=tab][aria-selected=true] {
-  background: #fff;
-}
+  // Currently selected tab
+  [role=tab][aria-selected=true] 
+    background: activeTab
 
-.react-tabs [role=tab][aria-disabled=true] {
-  color: GrayText;
-  cursor: default;
-}
-
-.react-tabs [role=tab]:focus {
-  box-shadow: 0 0 5px hsl(208, 99%, 50%);
-  border-color: hsl(208, 99%, 50%);
-  outline: none;
-}
-
-.react-tabs [role=tab]:focus:after {
-  content: "";
-  position: absolute;
-  height: 5px;
-  left: -4px;
-  right: -4px;
-  bottom: -5px;
-  background: #fff;
-}
-
-  webview
-    height: 90vh
+// Webviews
+webview
+  height 90vh
