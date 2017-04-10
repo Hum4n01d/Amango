@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Amango - Manage your accounts!",
   "main": "main.js",
-  "repository": "https://github.com/Amangoapp/Amango.git",
+  "repository": "https://github.com/hum4n01d/amango.git",
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
