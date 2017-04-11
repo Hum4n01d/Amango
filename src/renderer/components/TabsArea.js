@@ -19,8 +19,19 @@ class TabsArea extends Component {
   }
   handleSelect(index, last) {
     console.log(`Tab ${index} selected`)
-    if (index === this.state.tabs.length) {
-      console.log('new tab pressed')
+
+    if (index+1 === this.state.tabs.length) {
+      // Clones the current tabs
+      const updatedTabs = this.state.tabs.slice() 
+      
+      updatedTabs.splice(this.state.tabs.length-1, 0, {
+        url: 'https://apple.com',
+        title: 'Apple\'s Website'
+      })
+
+      this.setState({
+        tabs: updatedTabs
+      })
     }
   }
   render() {
@@ -36,7 +47,7 @@ class TabsArea extends Component {
           }
         </TabList>
         {
-          this.props.initalTabs.map((site, index) => {
+          this.state.tabs.map((site, index) => {
             return (
               <TabPanel key={index}>
                 <WebView src={site.url} partition={"persist" + index}></WebView>
