@@ -1,12 +1,27 @@
 {
   "tabs": [{
-    "url": "https://soundcloud.com/d3rn",
-    "title": "D3RN Soundcloud"
+    "url": "https://discordapp.com/channels/@me",
+    "title": "Discord"
+  }, {
+    "url": "https://soundcloud.com/hum4n01dmusic",
+    "title": "Hum4n01d"
+  }, {
+    "url": "https://soundcloud.com/hum4n01dalt",
+    "title": "Hum4n01d Alt"
   }, {
     "url": "https://soundcloud.com/tmsnetwork",
     "title": "TMS Network"
   }, {
-    "url": "https://maps.google.com",
-    "title": "Google Maps"
+    "url": "https://soundcloud.com/skysl",
+    "title": "Skysl"
+  }, {
+    "url": "https://soundcloud.com/orcal",
+    "title": "Orcal"
+  }, {
+    "url": "https://soundcloud.com/d3rn",
+    "title": "D3RN"
+  }, {
+    "url": "https://soundcloud.com/skytr011",
+    "title": "Skytro11"
   }]
 }

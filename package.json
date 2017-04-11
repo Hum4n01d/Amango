@@ -11,6 +11,7 @@
     "dev": "nodemon ./src/main.js --ignore ./src/renderer --exec electron"
   },
   "dependencies": {
+    "electron-compile": "^6.3.0",
     "electron-forge": "^2.9.0",
     "prop-types": "^15.5.4",
     "react": "^15.4.2",

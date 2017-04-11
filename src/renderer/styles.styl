@@ -1,21 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2')
 
 // Colors
-tabBg = #7cefaf
-activeTab = #FFF3B0
-background = #76d2b7
+tabBackgroundColor = #7cefaf
+activeTabColor = #FFF3B0
+backgroundColor = #76d2b7
+tabDividerColor = #319477
+newTabColor = #00e8a4
 
 // Basic stuff
 body
   font-family: 'Exo 2', 'Roboto', Helvetica, Arial, sans-serif
-  background-color background
+  background-color backgroundColor
   margin: 0
   height 100vh
+
+Full height
+#root,
+#root > div,
+.react-tabs,
+.react-tabs [role=tabpanel],
+.react-tabs [role=tabpanel] > div,
+.react-tabs [role=tabpanel] > div > webview
+  height: 100%
 
 // Title bar
 header
   height: 22px
-  background-color: darken(background, 40%)
   -webkit-user-select: none
   -webkit-app-region: drag
 
@@ -24,20 +34,62 @@ header
 
 // Tabs
 .react-tabs [role=tablist] 
-  margin: 0 0 10px
+  margin 0
+  border-bottom: 1px solid tabDividerColor
   padding: 0
+  display: flex
+  overflow: scroll
 
   // All tabs
   [role=tab] 
-    display: inline-block
-    padding: 6px 12px
+    display: flex
+    align-items: center
+    padding: 5px 10px
+
     cursor: pointer
-    background-color: tabBg
+    background-color: tabBackgroundColor
+    flex-grow 1
+    border-right: 1px solid tabDividerColor
+
+    // Favicon
+    .favicon 
+      display: flex
+      align-items: center
+
+      img
+        width 16px
+        height 16px
+        margin-right: 5px
+
+    // Tab name
+    > p
+      margin 0
+      text-align: center
+      flex-grow 1
+
+    // New tab
+    &:last-child
+      background-color: newTabColor
+      flex-grow: 0
 
   // Currently selected tab
   [role=tab][aria-selected=true] 
-    background: activeTab
+    background: activeTabColor
 
 // Webviews
-webview
-  height 90vh
+.webview-loading
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em
+
+  > div
+    display: flex
+    align-items: center
+
+    p
+      margin-right 10px
+
+    img
+      width: 30px
+      height: 30px

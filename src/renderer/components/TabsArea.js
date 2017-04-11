@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import WebView from 'react-electron-web-view'
+
+import WebViewWrapper from './WebViewWrapper'
+import Favicon from './Favicon'
 
 class TabsArea extends Component {
   PropTypes = {
     initalTabs: PropTypes.array.isRequired
   }
   state = {
-    tabs: this.props.initalTabs
+    tabs: this.props.initalTabs,
+    randomThing: 'nothing yet'
   }
   constructor(props) {
     super(props)
@@ -18,30 +21,34 @@ class TabsArea extends Component {
     this.handleSelect = this.handleSelect.bind(this)
   }
   handleSelect(index, last) {
-    console.log(`Tab ${index} selected`)
+    const newTabClicked = index+1 === this.state.tabs.length
 
-    if (index+1 === this.state.tabs.length) {
-      // Clones the current tabs
-      const updatedTabs = this.state.tabs.slice() 
-      
-      updatedTabs.splice(this.state.tabs.length-1, 0, {
-        url: 'https://apple.com',
-        title: 'Apple\'s Website'
+    if (newTabClicked) {
+      // Copy current tabs
+      let newTabs = [...this.state.tabs]
+      newTabs.splice(newTabs.length-1, 0, {
+        url: 'https://heroku.com',
+        title: 'Heroku'
       })
 
-      this.setState({
-        tabs: updatedTabs
+      this.setState((prevState, props) => {
+        return {
+          tabs: newTabs
+        }
       })
     }
   }
   render() {
     return (
-      <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true}>
+      <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true} selectedIndex={2}>
         <TabList>
           {
             this.state.tabs.map((site, index) => {
               return (
-                <Tab key={index}>{site.title}</Tab>
+                <Tab key={index}>
+                  <Favicon url={site.url}/>
+                  <p>{site.title}</p>
+                </Tab>
               )
             })
           }
@@ -50,7 +57,7 @@ class TabsArea extends Component {
           this.state.tabs.map((site, index) => {
             return (
               <TabPanel key={index}>
-                <WebView src={site.url} partition={"persist" + index}></WebView>
+                <WebViewWrapper src={site.url} index={index} />
               </TabPanel>
             )
           })
