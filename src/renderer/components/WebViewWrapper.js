@@ -19,12 +19,10 @@ class WebViewWrapper extends Component {
   }
   
   componentDidMount() {
-    const webview = document.querySelector(`webview[src='${this.props.src}']`)
+    const partition = `webview[src='${this.props.src}']`
+    const webview = document.querySelector(partition)
     
     webview.addEventListener('dom-ready', this.loadWebView)
-    // webview.addEventListener('dom-ready', () => {
-    //   console.log("READY")
-    // })
   }
   
   loadWebView() {
@@ -34,11 +32,9 @@ class WebViewWrapper extends Component {
   }
   
   render() {
-    const webviewClass = this.state.loading ? 'hide' : ''
-    
     return (
       <div className="webview-wrapper">
-        <WebView src={this.props.src} partition={`persist:${this.props.index}`} className={webviewClass}/>
+        <WebView src={this.props.src} partition={`persist:${this.props.index}`} />
         {
           this.state.loading ?
             <div className='webview-loading'>
@@ -46,7 +42,7 @@ class WebViewWrapper extends Component {
               <img src='images/loading.gif'/>
             </div>
             :
-            <div></div>
+            <span></span>
         }
       </div>
     )

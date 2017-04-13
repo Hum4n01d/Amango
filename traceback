@@ -1,4 +1,0 @@
-/Users/Hum4n01d/Desktop/Tech/Electron/Amango/node_modules/.bin/electron --debug-brk=65056 --expose_debug_as=v8debug /Users/Hum4n01d/Desktop/Tech/Electron/Amango/src/main.js
-App threw an error during load
-Error: Cannot find module '/Users/Hum4n01d/Desktop/Tech/Electron/Amango/src/--debug-brk=65056'
-    at Module._resolveFilename (module.js:470:15)
