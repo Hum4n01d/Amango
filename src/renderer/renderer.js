@@ -1,8 +1,8 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { readFileSync } from 'fs'
-import { join } from 'path'
-import { AppContainer } from 'react-hot-loader'
+import React from "react"
+import {render} from "react-dom"
+import {readFileSync} from "fs"
+import {join} from "path"
+import {AppContainer} from "react-hot-loader"
 
 const savePath = join(__dirname, 'save/tabs.json')
 const initalTabs = [
@@ -20,10 +20,12 @@ const initalTabs = [
 const renderApp = () => {
   const Application = require('./components/Application').default
   render(
-    <AppContainer><Application initalTabs={initalTabs} /></AppContainer>,
+    <AppContainer><Application initalTabs={initalTabs}/></AppContainer>,
     document.getElementById('root')
   )
 }
 
 renderApp()
-if (module.hot) { module.hot.accept(renderApp) }
+if (module.hot) {
+  module.hot.accept(renderApp)
+}

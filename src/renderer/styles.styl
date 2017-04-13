@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2')
 
+*
+  box-sizing: border-box
+
 // Colors
 tabBackgroundColor = #7cefaf
 activeTabColor = #FFF3B0
 backgroundColor = #76d2b7
 tabDividerColor = #319477
 newTabColor = #00e8a4
+titleBarColor = #219a76
 
 // Basic stuff
 body
@@ -14,20 +18,25 @@ body
   margin: 0
   height 100vh
 
-Full height
-#root,
-#root > div,
-.react-tabs,
-.react-tabs [role=tabpanel],
-.react-tabs [role=tabpanel] > div,
-.react-tabs [role=tabpanel] > div > webview
-  height: 100%
+// Hide webview before it loads
+.hide
+  visibility: hidden
+
+// Full height
+// #root,
+// #root > div,
+// .react-tabs,
+// .react-tabs [role=tabpanel],
+// .react-tabs [role=tabpanel] > div,
+// .react-tabs [role=tabpanel] .webview-wrapper > webview
+//   height: 100%
 
 // Title bar
 header
   height: 22px
   -webkit-user-select: none
   -webkit-app-region: drag
+  background-color: tabDividerColor
 
   &.fullscreen
     height: 0
@@ -38,13 +47,14 @@ header
   border-bottom: 1px solid tabDividerColor
   padding: 0
   display: flex
-  overflow: scroll
+  width: 100vw
+  // overflow: scroll
 
   // All tabs
   [role=tab] 
     display: flex
     align-items: center
-    padding: 5px 10px
+    padding: 7px 10px
 
     cursor: pointer
     background-color: tabBackgroundColor
@@ -66,6 +76,8 @@ header
       margin 0
       text-align: center
       flex-grow 1
+      white-space: nowrap
+      overflow: hidden
 
     // New tab
     &:last-child
@@ -77,19 +89,23 @@ header
     background: activeTabColor
 
 // Webviews
-.webview-loading
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.webview-wrapper
   font-size: 2em
 
-  > div
-    display: flex
-    align-items: center
+  &,
+  .webview-loading
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    p
-      margin-right 10px
+  p
+    margin: 0
+    margin-right 10px
 
-    img
-      width: 30px
-      height: 30px
+  img
+    width: 30px
+    height: 30px
+
+webview
+  width 100vw
+  height 100vh

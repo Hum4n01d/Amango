@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, {Component} from "react"
+import PropTypes from "prop-types"
 
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import {Tab, TabList, TabPanel, Tabs} from "react-tabs"
 
-import WebViewWrapper from './WebViewWrapper'
-import Favicon from './Favicon'
+import WebViewWrapper from "./WebViewWrapper"
+import Favicon from "./Favicon"
 
 class TabsArea extends Component {
   PropTypes = {
@@ -14,23 +14,28 @@ class TabsArea extends Component {
     tabs: this.props.initalTabs,
     randomThing: 'nothing yet'
   }
+  
   constructor(props) {
     super(props)
     Tabs.setUseDefaultStyles(false)
-
+    
     this.handleSelect = this.handleSelect.bind(this)
   }
+  
   handleSelect(index, last) {
-    const newTabClicked = index+1 === this.state.tabs.length
-
+    const newTabClicked = index + 1 === this.state.tabs.length
+    
     if (newTabClicked) {
       // Copy current tabs
       let newTabs = [...this.state.tabs]
-      newTabs.splice(newTabs.length-1, 0, {
+      
+      // Insert new tab
+      newTabs.splice(newTabs.length - 1, 0, {
         url: 'https://heroku.com',
         title: 'Heroku'
       })
-
+      
+      // Update state
       this.setState((prevState, props) => {
         return {
           tabs: newTabs
@@ -38,6 +43,7 @@ class TabsArea extends Component {
       })
     }
   }
+  
   render() {
     return (
       <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true} selectedIndex={2}>
@@ -57,7 +63,7 @@ class TabsArea extends Component {
           this.state.tabs.map((site, index) => {
             return (
               <TabPanel key={index}>
-                <WebViewWrapper src={site.url} index={index} />
+                <WebViewWrapper src={site.url} index={index}/>
               </TabPanel>
             )
           })
