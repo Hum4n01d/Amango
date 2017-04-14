@@ -1,7 +1,6 @@
 # WARNING: This app is still in development and no releases have been made yet. Install at your own risk.
 
 # Amango
-[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![dependencies Status](https://david-dm.org/hum4n01d/amango/status.svg)](https://david-dm.org/hum4n01d/amango)
 [![devDependencies Status](https://david-dm.org/hum4n01d/amango/dev-status.svg)](https://david-dm.org/hum4n01d/amango?type=dev)
