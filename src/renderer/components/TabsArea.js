@@ -11,8 +11,7 @@ class TabsArea extends Component {
     initalTabs: PropTypes.array.isRequired
   }
   state = {
-    tabs: this.props.initalTabs,
-    randomThing: 'nothing yet'
+    tabs: this.props.initalTabs
   }
   
   constructor(props) {
@@ -23,23 +22,18 @@ class TabsArea extends Component {
   }
   
   handleSelect(index, last) {
-    const newTabClicked = index + 1 === this.state.tabs.length
-    
-    if (newTabClicked) {
-      // Copy current tabs
-      let newTabs = [...this.state.tabs]
-      
-      // Insert new tab
+    let lastTab = this.state.tabs.length - 1
+
+    if (index === lastTab) {
+      let newTabs = this.state.tabs.slice()
+
       newTabs.splice(newTabs.length - 1, 0, {
-        url: 'https://heroku.com',
-        title: 'Heroku'
+        title: 'bad website',
+        url: 'http://isuch.pro'
       })
-      
-      // Update state
-      this.setState((prevState, props) => {
-        return {
-          tabs: newTabs
-        }
+
+      this.setState({
+        tabs: newTabs
       })
     }
   }

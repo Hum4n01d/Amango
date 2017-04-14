@@ -32,10 +32,13 @@ class WebViewWrapper extends Component {
   }
   
   render() {
+    // let webviewClass = this.state.loading ? "hide" : "dont hide"
+    // console.log(webviewClass)
+
     return (
       <div className="webview-wrapper">
         <WebView src={this.props.src} partition={`persist:${this.props.index}`} />
-        {
+        {/*{
           this.state.loading ?
             <div className='webview-loading'>
               <p>Loading...</p>
@@ -43,7 +46,7 @@ class WebViewWrapper extends Component {
             </div>
             :
             <span></span>
-        }
+        }*/}
       </div>
     )
   }

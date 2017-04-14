@@ -26,6 +26,7 @@ function createWindow() {
   
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
+    mainWindow.setMinimumSize(480, 320)
     // mainWindow.webContents.openDevTools()
   })
   mainWindow.on('closed', function () {

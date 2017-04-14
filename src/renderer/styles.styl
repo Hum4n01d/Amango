@@ -18,29 +18,44 @@ body
   margin: 0
   height 100vh
 
+// Hide scrollbars (not in webview)
+::-webkit-scrollbar
+    display: none
+
 // Hide webview before it loads
 .hide
   // visibility: hidden
   border: 1px solid red
 
 // Full height
-// #root,
-// #root > div,
-// .react-tabs,
-// .react-tabs [role=tabpanel],
-// .react-tabs [role=tabpanel] > div,
-// .react-tabs [role=tabpanel] .webview-wrapper > webview
-//   height: 100%
+#root,
+#root > div,
+.react-tabs,
+.react-tabs [role=tabpanel],
+.react-tabs [role=tabpanel] .webview-wrapper > div
+.react-tabs [role=tabpanel] .webview-wrapper > div > webview
+  height: 100%
+
+.react-tabs,
+.react-tabs [role=tabpanel]
+  display: flex
+  
+.react-tabs
+  flex-direction: column
+
+.webview-wrapper,
+.webview-wrapper > div
+  width: 100%
 
 // Title bar
 header
-  height: 22px
+  min-height: 22px
   -webkit-user-select: none
   -webkit-app-region: drag
   background-color: tabDividerColor
 
   &.fullscreen
-    height: 0
+    display none
 
 // Tabs
 .react-tabs [role=tablist] 
@@ -49,7 +64,7 @@ header
   padding: 0
   display: flex
   width: 100vw
-  // overflow: scroll
+  overflow: scroll
 
   // All tabs
   [role=tab] 
@@ -107,6 +122,6 @@ header
     width: 30px
     height: 30px
 
-webview
-  width 100vw
-  height 100vh
+// webview
+//   width 100vw
+//   height 100vh
