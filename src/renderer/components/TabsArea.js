@@ -43,9 +43,9 @@ class TabsArea extends Component {
       <Tabs onSelect={this.handleSelect} forceRenderTabPanel={true} selectedIndex={2}>
         <TabList>
           {
-            this.state.tabs.map((site, index) => {
+            this.state.tabs.map(site => {
               return (
-                <Tab key={index}>
+                <Tab key={site.uuid}>
                   <Favicon url={site.url}/>
                   <p>{site.title}</p>
                 </Tab>
@@ -54,10 +54,10 @@ class TabsArea extends Component {
           }
         </TabList>
         {
-          this.state.tabs.map((site, index) => {
+          this.state.tabs.map(site => {
             return (
-              <TabPanel key={index}>
-                <WebViewWrapper src={site.url} index={index}/>
+              <TabPanel key={site.uuid}>
+                <WebViewWrapper src={site.url} index={site.uuid}/>
               </TabPanel>
             )
           })
