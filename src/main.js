@@ -15,7 +15,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     show: false,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden-inset'
   })
   
   mainWindow.loadURL(url.format({
