@@ -49,13 +49,10 @@ body
 
 // Title bar
 header
-  min-height: 22px
+  min-height: 40px
   -webkit-user-select: none
   -webkit-app-region: drag
   background-color: tabDividerColor
-
-  &.fullscreen
-    display none
 
 // Tabs
 .react-tabs [role=tablist] 
@@ -95,6 +92,11 @@ header
       white-space: nowrap
       overflow: hidden
 
+    // Close button
+    .close-button
+      height: 10px
+      margin-left: 10px
+
     // New tab
     &:last-child
       background-color: newTabColor
@@ -121,7 +123,3 @@ header
   img
     width: 30px
     height: 30px
-
-// webview
-//   width 100vw
-//   height 100vh

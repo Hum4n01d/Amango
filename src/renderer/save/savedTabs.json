@@ -1,0 +1,19 @@
+{
+  "tabs": [{
+    "title": "Amango",
+    "url": "/Users/Kent/Desktop/Tech/Electron/Amango/src/renderer/templates/info.html",
+    "udid": "5735d0a6-e05e-40f5-a465-083071186a40"
+  }, {
+    "url": "https://example.com/",
+    "title": "Example.com",
+    "uuid": "15d0a967-8918-4011-9726-d4c8590b0430"
+  }, {
+    "url": "http://exampledomain.org",
+    "title": "Example Blog",
+    "uuid": "92eecf2a-ff84-4c9a-bbf7-bac2e9579c52"
+  }, {
+    "title": "+",
+    "url": "/Users/Kent/Desktop/Tech/Electron/Amango/src/renderer/templates/info.html",
+    "uuid": "aa983783-545b-47d5-a454-82c7986ad38b"
+  }]
+}
