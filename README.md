@@ -10,9 +10,9 @@
 Amango is an app to manage all of your accounts across different websites through an easy to use, cross-platform, all-in-one desktop app!
 
 ## Install
-* macOs - Packaged app coming soon! For now just install using development instructions
+* macOS - Packaged app coming soon! For now just install using development instructions
 * Windows - Coming soon!
-* Linux - Comming soon!
+* Linux - Coming soon!
 
 ## Supported Apps
 * Any app with a web interface! (Slack, Discord, Gmail, Skype, etc.)
