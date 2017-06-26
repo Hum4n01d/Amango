@@ -5,10 +5,8 @@
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack -p --progress --hide-modules",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages --dist=build --message='Automatic Deploy'"
+    "start": "webpack-dev-server --progress",
+    "build": "NODE_ENV=production webpack -p --progress --hide-modules"
   },
   "dependencies": {
     "normalize.css": "^6.0.0",
