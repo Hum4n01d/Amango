@@ -1,7 +1,6 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const isDev = process.env.NODE_ENV != 'production'
@@ -61,9 +60,6 @@ module.exports = {
       inject: true,
       template: resolve(__dirname, 'src/index.html')
     }),
-    new CopyWebpackPlugin([{ 
-      from: '../CNAME' 
-    }]),
     new webpack.DefinePlugin({
       "environment": '"production"',
       NODE_ENV: JSON.stringify("production")

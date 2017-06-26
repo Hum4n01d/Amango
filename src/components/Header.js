@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 import styles from '../styles/styles.styl'
-import mustachio from '../images/mustachio.svg'
 
 export default props => (
   <header className={styles.header}>
