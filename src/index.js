@@ -6,7 +6,7 @@ import { AppContainer } from 'react-hot-loader' // AppContainer is a necessary w
 import Router from './router'
 
 ReactDOM.render(
-  <Router/>,
+  <Router />,
   document.getElementById('root')
 )
 

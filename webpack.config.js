@@ -10,14 +10,14 @@ const buildFolder = 'build'
 
 const entry = isDev ? [
   'react-hot-loader/patch', // activate HMR for React
-  'webpack-dev-server/client?http://localhost:'+PORT, // bundle the client for webpack-dev-server and connect to the provided endpoint
+  'webpack-dev-server/client?http://localhost:' + PORT, // bundle the client for webpack-dev-server and connect to the provided endpoint
   'webpack/hot/only-dev-server', // bundle the client for hot reloading. only- means to only hot reload for successful updates
   './index.js' // the entry point of our app
 ] : './index.js'
 
 const devPlugins = isDev ? [
-    new webpack.HotModuleReplacementPlugin(), // enable HMR globally
-    new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+  new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+  new webpack.NamedModulesPlugin() // prints more readable module names in the browser console on HMR updates
 ] : undefined
 
 module.exports = {
@@ -53,7 +53,7 @@ module.exports = {
         test: /\.jpg/,
         use: 'file-loader'
       }
-    ],
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -61,8 +61,8 @@ module.exports = {
       template: resolve(__dirname, 'src/index.html')
     }),
     new webpack.DefinePlugin({
-      "environment": '"production"',
-      NODE_ENV: JSON.stringify("production")
+      'environment': '"production"',
+      NODE_ENV: JSON.stringify('production')
     })
-  ].concat(devPlugins),
-};
+  ].concat(devPlugins)
+}
