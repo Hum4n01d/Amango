@@ -22,7 +22,7 @@ const devPlugins = isDev ? [
 
 module.exports = {
   context: resolve(__dirname, 'src'),
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval',
   entry: entry,
   output: {
     filename: 'bundle.js', // the output bundle
@@ -40,18 +40,6 @@ module.exports = {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.styl$/,
-        use: ['style-loader', {loader: 'css-loader', options: {modules: true}}, 'stylus-loader']
-      },
-      {
-        test: /\.jpg/,
-        use: 'file-loader'
       }
     ]
   },

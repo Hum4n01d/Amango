@@ -1,8 +1,12 @@
 import React from 'react'
-import 'normalize.css'
+import styledNormalize from 'styled-normalize'
+import {injectGlobal} from 'styled-components'
 
 import Header from './Header'
-import styles from '../styles/styles.styl'
+
+injectGlobal`
+  ${styledNormalize}
+`
 
 export default props => (
   <div>
