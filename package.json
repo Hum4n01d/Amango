@@ -1,7 +1,8 @@
 {
-  "name": "hum4n01d",
+  "name": "react-starter",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A template or boilerplate for React projects with Webpack, ES2015, JSX, Hot Reloading, and Styled Components",
+  "main": "src/index.js",
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
@@ -22,9 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
-    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.28.0",
-    "standard": "^10.0.2",
     "webpack": "^2.4.1",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-server": "^2.4.3"

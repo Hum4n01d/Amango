@@ -6,6 +6,14 @@ import Header from './Header'
 
 injectGlobal`
   ${styledNormalize}
+
+  body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  }
+
+  a {
+    color: inherit;
+  }
 `
 
 export default props => (
