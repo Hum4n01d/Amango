@@ -1,5 +1,5 @@
 const { resolve } = require('path')
-const webpack = require('webpack')
+const {HotModuleReplacementPlugin, NamedModulesPlugin, IgnorePlugin, DefinePlugin} = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -16,14 +16,18 @@ const entry = isDev ? [
 ] : './index.js'
 
 const devPlugins = isDev ? [
-  new webpack.HotModuleReplacementPlugin(), // enable HMR globally
-  new webpack.NamedModulesPlugin() // prints more readable module names in the browser console on HMR updates
+  new HotModuleReplacementPlugin(), // enable HMR globally
+  new NamedModulesPlugin() // prints more readable module names in the browser console on HMR updates
 ] : undefined
 
 module.exports = {
-  context: resolve(__dirname, 'src'),
+  context: resolve(__dirname, 'src/renderer'),
   devtool: 'eval',
   entry: entry,
+  target: 'electron-renderer',
+  externals: {
+    electron: 'electron'
+  },
   output: {
     filename: 'bundle.js', // the output bundle
     path: resolve(__dirname, buildFolder),
@@ -46,11 +50,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: resolve(__dirname, 'src/index.html')
+      template: resolve(__dirname, 'src/renderer/index.html')
     }),
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       'environment': '"production"',
       NODE_ENV: JSON.stringify('production')
-    })
+    }),
+    new IgnorePlugin(new RegExp("^(fs|ipc|electron)$"))
+
   ].concat(devPlugins)
 }
