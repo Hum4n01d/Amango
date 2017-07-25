@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
-import {Tab} from 'react-tabs'
 
-import {colors} from '../config'
 import NavButton from './NavButton'
 import Favicon from './Favicon'
+import Tab from './Tab'
 import TabNavWrapper from './TabNavWrapper'
 
-const Header = styled.header`
+import {colors} from '../config'
+
+const HeaderWrapper = styled.header`
   height: 37px;
 
   // Make window draggable by header
@@ -21,33 +22,32 @@ const Header = styled.header`
   ${props => !props.fullscreen ? `
     padding-left: 70px;
   `: ``}
-  
-  nav {
-    display: flex;
-    padding: 5px;
-  }
+`
+const Nav = styled.nav`
+  display: flex;
+  padding: 5px;
 `
 const TabLabel = styled.p`
   display: none;
   
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 500px) {
     display: block;
   }
 `
 
 export default props => (
-  <Header {...props}>
-    <nav>
+  <HeaderWrapper {...props}>
+    <Nav>
       <NavButton>&#9664;</NavButton>
       <NavButton>&#9654;</NavButton>
-    </nav>
+    </Nav>
     <TabNavWrapper>
-      {props.tabs.map(tab => (
-        <Tab key={tab.id}>
+      {props.tabs.map((tab, index) => (
+        <Tab key={tab.id} onClick={() => props.onTabSelect(index)} active={props.activeTab === index}>
           <Favicon url={tab.url}/>
           <TabLabel>{tab.title}</TabLabel>
         </Tab>
       ))}
     </TabNavWrapper>
-  </Header>
+  </HeaderWrapper>
 )

@@ -7,7 +7,10 @@ import App from './components/App'
 const store = new Store()
 
 ReactDOM.render(
-  <App tabs={store.get('tabs')}/>,
+  <App 
+  tabs={store.get('tabs')} 
+  activeTab={store.get('activeTab')} 
+  />,
   document.getElementById('root')
 )
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {TabPanel} from 'react-tabs'
 
 const TabContent = styled.div`
   background-color: red;
@@ -8,11 +7,11 @@ const TabContent = styled.div`
 
 export default props => (
   <TabContent>
-    <TabPanel>
+    <div>
       <h2>Any content 1</h2>
-    </TabPanel>
-    <TabPanel>
+    </div>
+    <div>
       <h2>Any content 2</h2>
-    </TabPanel>
+    </div>
   </TabContent>
 )

@@ -1,9 +1,12 @@
 // import {remote} from 'electron'
 import React, {Component} from 'react'
 import styled, {injectGlobal} from 'styled-components'
-import {Tabs} from 'react-tabs'
 
 const {remote} = window.require('electron')
+
+import Store from '../store'
+
+const store = new Store()
 
 import Header from './Header'
 import TabContent from './TabContent'
@@ -17,19 +20,21 @@ injectGlobal`
 export default class App extends Component {
   state = {
     fullScreen: this.isFullScreen(),
-    tabs: this.props.tabs
+    tabs: this.props.tabs,
+    activeTab: this.props.activeTab
   }
   constructor(props) {
     super(props)
-    
+
     this.updateFullScreen = this.updateFullScreen.bind(this)
+    this.onTabSelect = this.onTabSelect.bind(this)
   }
   getCurrentWindow() {
     return remote.getCurrentWindow()
   }
   componentDidMount() {
     const win = this.getCurrentWindow()
-    
+
     win.on('enter-full-screen', this.updateFullScreen)
     win.on('leave-full-screen', this.updateFullScreen)
   }
@@ -42,14 +47,20 @@ export default class App extends Component {
     })
   }
   onTabSelect(index) {
-    console.log(`Tab ${tabIndex} selected`)
+    this.setState({
+      activeTab: index
+    })
+    store.set('activeTab', index)
+
+    console.log(this.state.activeTab)
+    console.log(store.get('activeTab'))
   }
   render() {
     return (
-      <Tabs onSelect={this.props.onTabSelect}>
-        <Header fullscreen={this.state.fullScreen} tabs={this.state.tabs} onTabSelect={this.onTabSelect}/>
+      <div>
+        <Header fullscreen={this.state.fullScreen} tabs={this.state.tabs} onTabSelect={this.onTabSelect} activeTab={this.state.activeTab}/>
         <TabContent tabs={this.state.tabs}/>
-      </Tabs>
+      </div>
     )
   }
 }

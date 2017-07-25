@@ -16,7 +16,8 @@ export default class Store {
       this.data = JSON.parse(readFileSync(this.configFile))
     } catch(e) {
       this.data = {
-        tabs: initalDevTabs
+        tabs: initalDevTabs,
+        activeTab: 1
       }
       this.update()
     }

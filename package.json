@@ -16,7 +16,6 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
-    "react-tabs": "^1.1.0",
     "shortid": "^2.2.8",
     "styled-components": "^2.1.0"
   },
