@@ -16,6 +16,9 @@ injectGlobal`
     margin: 0;
   }
 `
+const AppWrapper = styled.div`
+
+`
 
 export default class App extends Component {
   state = {
@@ -58,10 +61,10 @@ export default class App extends Component {
       activeTab: this.state.activeTab
     }
     return (
-      <div>
+      <AppWrapper>
         <Header {...sharedProps} fullscreen={this.state.fullScreen} onTabSelect={this.onTabSelect}/>
         <TabPanels {...sharedProps}/>
-      </div>
+      </AppWrapper>
     )
   }
 }

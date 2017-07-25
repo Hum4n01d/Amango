@@ -21,18 +21,23 @@ export let colors = {
 
 export let initalDevTabs = [
   {
-    url: 'https://google.com/',
-    title: 'Google',
+    url: 'https://soundcloud.com/inf1ne',
+    title: 'Infine',
+    id: 'rk2kaGSIb'
+  },
+  {
+    url: 'https://soundcloud.com/tmsnetwork',
+    title: 'TMSNetwork',
     id: 'ryMvyrNIb'
   },
   {
-    url: 'https://yahoo.com/',
-    title: 'Yahoo',
+    url: 'https://soundcloud.com/orcal',
+    title: 'Orcal',
     id: 'By1_yBNI-'
   },
   {
-    url: 'https://www.hum4n01d.me/',
-    title: 'Hum4n01d',
+    url: 'https://soundcloud.com/d3rn',
+    title: 'D3RN',
     id: 'rJC_JHEUb'
   }
 ]
