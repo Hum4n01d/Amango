@@ -17,7 +17,7 @@ export default class Store {
     } catch(e) {
       this.data = {
         tabs: initalDevTabs,
-        activeTab: 1
+        activeTab: 'By1_yBNI-'
       }
       this.update()
     }

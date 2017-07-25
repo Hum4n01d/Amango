@@ -42,8 +42,8 @@ export default props => (
       <NavButton>&#9654;</NavButton>
     </Nav>
     <TabNavWrapper>
-      {props.tabs.map((tab, index) => (
-        <Tab key={tab.id} onClick={() => props.onTabSelect(index)} active={props.activeTab === index}>
+      {props.tabs.map(tab => (
+        <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={props.activeTab === tab.id}>
           <Favicon url={tab.url}/>
           <TabLabel>{tab.title}</TabLabel>
         </Tab>

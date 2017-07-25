@@ -15,6 +15,7 @@
     "electron": "^1.6.11",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-electron-web-view": "^2.0.1",
     "react-hot-loader": "next",
     "shortid": "^2.2.8",
     "styled-components": "^2.1.0"

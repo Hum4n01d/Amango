@@ -9,7 +9,7 @@ import Store from '../store'
 const store = new Store()
 
 import Header from './Header'
-import TabContent from './TabContent'
+import TabPanels from './TabPanels'
 
 injectGlobal`
   body {
@@ -46,20 +46,21 @@ export default class App extends Component {
       fullScreen: this.isFullScreen()
     })
   }
-  onTabSelect(index) {
+  onTabSelect(id) {
     this.setState({
-      activeTab: index
+      activeTab: id
     })
-    store.set('activeTab', index)
-
-    console.log(this.state.activeTab)
-    console.log(store.get('activeTab'))
+    store.set('activeTab', id)
   }
   render() {
+    const sharedProps = {
+      tabs: this.state.tabs,
+      activeTab: this.state.activeTab
+    }
     return (
       <div>
-        <Header fullscreen={this.state.fullScreen} tabs={this.state.tabs} onTabSelect={this.onTabSelect} activeTab={this.state.activeTab}/>
-        <TabContent tabs={this.state.tabs}/>
+        <Header {...sharedProps} fullscreen={this.state.fullScreen} onTabSelect={this.onTabSelect}/>
+        <TabPanels {...sharedProps}/>
       </div>
     )
   }
