@@ -1,11 +1,12 @@
+// import {remote} from 'electron'
 import React, {Component} from 'react'
 import styled, {injectGlobal} from 'styled-components'
 import {Tabs} from 'react-tabs'
 
+const {remote} = window.require('electron')
+
 import Header from './Header'
 import TabContent from './TabContent'
-
-const {remote} = window.require('electron')
 
 injectGlobal`
   body {
@@ -15,7 +16,8 @@ injectGlobal`
 
 export default class App extends Component {
   state = {
-    fullScreen: this.isFullScreen()
+    fullScreen: this.isFullScreen(),
+    tabs: this.props.tabs
   }
   constructor(props) {
     super(props)
@@ -39,11 +41,14 @@ export default class App extends Component {
       fullScreen: this.isFullScreen()
     })
   }
+  onTabSelect(index) {
+    console.log(`Tab ${tabIndex} selected`)
+  }
   render() {
     return (
-      <Tabs>
-        <Header fullscreen={this.state.fullScreen}/>
-        <TabContent/>
+      <Tabs onSelect={this.props.onTabSelect}>
+        <Header fullscreen={this.state.fullScreen} tabs={this.state.tabs} onTabSelect={this.onTabSelect}/>
+        <TabContent tabs={this.state.tabs}/>
       </Tabs>
     )
   }

@@ -4,7 +4,8 @@ import {Tab} from 'react-tabs'
 
 import {colors} from '../config'
 import NavButton from './NavButton'
-import TabListWrapper from './TabListWrapper'
+import Favicon from './Favicon'
+import TabNavWrapper from './TabNavWrapper'
 
 const Header = styled.header`
   height: 37px;
@@ -26,16 +27,27 @@ const Header = styled.header`
     padding: 5px;
   }
 `
+const TabLabel = styled.p`
+  display: none;
+  
+  @media screen and (min-width: 400px) {
+    display: block;
+  }
+`
 
 export default props => (
   <Header {...props}>
-    <nav className="nav-buttons">
+    <nav>
       <NavButton>&#9664;</NavButton>
       <NavButton>&#9654;</NavButton>
     </nav>
-    <TabListWrapper>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
-    </TabListWrapper>
+    <TabNavWrapper>
+      {props.tabs.map(tab => (
+        <Tab key={tab.id}>
+          <Favicon url={tab.url}/>
+          <TabLabel>{tab.title}</TabLabel>
+        </Tab>
+      ))}
+    </TabNavWrapper>
   </Header>
 )

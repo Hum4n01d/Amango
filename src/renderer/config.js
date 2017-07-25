@@ -18,3 +18,21 @@ export let colors = {
   closeTabBackgroundColor: '#9c9b9c',
   closeTabTextColor: '#000000',
 }
+
+export let initalDevTabs = [
+  {
+    url: 'https://google.com/',
+    title: 'Google',
+    id: 'ryMvyrNIb'
+  },
+  {
+    url: 'https://yahoo.com/',
+    title: 'Yahoo',
+    id: 'By1_yBNI-'
+  },
+  {
+    url: 'https://www.hum4n01d.me/',
+    title: 'Hum4n01d',
+    id: 'rJC_JHEUb'
+  }
+]

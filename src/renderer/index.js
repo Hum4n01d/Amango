@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import Store from './store'
 import App from './components/App'
 
+const store = new Store()
+
 ReactDOM.render(
-  <App />,
+  <App tabs={store.get('tabs')}/>,
   document.getElementById('root')
 )
 

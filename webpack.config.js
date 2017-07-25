@@ -1,5 +1,5 @@
 const { resolve } = require('path')
-const {HotModuleReplacementPlugin, NamedModulesPlugin, IgnorePlugin, DefinePlugin} = require('webpack')
+const {HotModuleReplacementPlugin, NamedModulesPlugin, DefinePlugin} = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -22,16 +22,17 @@ const devPlugins = isDev ? [
 
 module.exports = {
   context: resolve(__dirname, 'src/renderer'),
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   entry: entry,
-  target: 'electron-renderer',
+  target: 'node',
   externals: {
     electron: 'electron'
   },
   output: {
     filename: 'bundle.js', // the output bundle
     path: resolve(__dirname, buildFolder),
-    publicPath: '/' // necessary for HMR to know where to load the hot update chunks
+    publicPath: '/', // necessary for HMR to know where to load the hot update chunks
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]'    
   },
   devServer: {
     port: PORT,
@@ -55,8 +56,6 @@ module.exports = {
     new DefinePlugin({
       'environment': '"production"',
       NODE_ENV: JSON.stringify('production')
-    }),
-    new IgnorePlugin(new RegExp("^(fs|ipc|electron)$"))
-
+    })
   ].concat(devPlugins)
 }
