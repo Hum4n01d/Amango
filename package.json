@@ -8,15 +8,17 @@
   "scripts": {
     "start": "concurrently 'yarn server' 'yarn electron'",
     "electron": "electron .",
-    "server": "webpack-dev-server --progress",
+    "server": "webpack-dev-server",
     "build": "NODE_ENV=production webpack -p --progress --hide-modules"
   },
   "dependencies": {
     "electron": "^1.6.11",
+    "electron-is-dev": "^0.3.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-electron-web-view": "^2.0.1",
     "react-hot-loader": "next",
+    "react-spinners": "^0.0.28",
     "shortid": "^2.2.8",
     "styled-components": "^2.1.0"
   },

@@ -1,14 +1,11 @@
 const {BrowserWindow, app} = require('electron')
 const {default: installExtension, REACT_DEVELOPER_TOOLS} = require('electron-devtools-installer')
 
-const path = require('path')
-const url = require('url')
-
 let mainWindow
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 1280,
     height: 800,
     show: false,
     titleBarStyle: 'hidden-inset'
@@ -16,12 +13,7 @@ function createWindow () {
 
   installExtension(REACT_DEVELOPER_TOOLS)
 
-
-  mainWindow.loadURL(url.format({
-    pathname: 'localhost:5000',
-    protocol: 'http:',
-    slashes: true
-  }))
+  mainWindow.loadURL(`http://localhost:5000`)
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()

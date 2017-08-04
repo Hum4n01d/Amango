@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 import styled, {css} from 'styled-components'
 import WebView from 'react-electron-web-view'
+import {MoonLoader as Loader} from 'react-spinners'
 
 const WebViewWrapper = styled.div`
   display: none;
@@ -14,12 +15,19 @@ const WebViewWrapper = styled.div`
   `}
 `
 
-export default props => (
-  <div>
-    {props.tabs.map(tab => (
-      <WebViewWrapper active={props.activeTab === tab.id} key={tab.id}>
-        <WebView src={tab.url} partition={`persist:${tab.id}`}/>
-      </WebViewWrapper>
-    ))}
-  </div>
-)
+export default class TabPanels extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <div>
+        {this.props.tabs.map(tab => (
+          <WebViewWrapper active={this.props.activeTab === tab.id} key={tab.id}>
+            <WebView src={tab.url} partition={`persist:${tab.id}`}/>
+          </WebViewWrapper>
+        ))}
+      </div>
+    )
+  }
+}

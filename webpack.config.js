@@ -24,7 +24,7 @@ module.exports = {
   context: resolve(__dirname, 'src/renderer'),
   devtool: 'inline-source-map',
   entry: entry,
-  target: 'node',
+  target: 'electron',
   externals: {
     electron: 'electron'
   },

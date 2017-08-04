@@ -31,6 +31,7 @@ export default class App extends Component {
 
     this.updateFullScreen = this.updateFullScreen.bind(this)
     this.onTabSelect = this.onTabSelect.bind(this)
+    this.onNavButtonClick = this.onNavButtonClick.bind(this)
   }
   getCurrentWindow() {
     return remote.getCurrentWindow()
@@ -55,6 +56,9 @@ export default class App extends Component {
     })
     store.set('activeTab', id)
   }
+  onNavButtonClick(direction) {
+    console.log(`Moving history in direction ${direction}`)  
+  }
   render() {
     const sharedProps = {
       tabs: this.state.tabs,
@@ -62,7 +66,11 @@ export default class App extends Component {
     }
     return (
       <AppWrapper>
-        <Header {...sharedProps} fullscreen={this.state.fullScreen} onTabSelect={this.onTabSelect}/>
+        <Header {...sharedProps} 
+          fullscreen={this.state.fullScreen} 
+          onTabSelect={this.onTabSelect} 
+          onNavButtonClick={this.onNavButtonClick}
+        />
         <TabPanels {...sharedProps}/>
       </AppWrapper>
     )

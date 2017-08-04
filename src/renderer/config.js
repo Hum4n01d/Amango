@@ -19,25 +19,20 @@ export let colors = {
   closeTabTextColor: '#000000',
 }
 
-export let initalDevTabs = [
+export let initialDevTabs = [
   {
-    url: 'https://soundcloud.com/inf1ne',
-    title: 'Infine',
-    id: 'rk2kaGSIb'
+   url: 'https://example.com/' ,
+   title: 'Example',
+   id: 'rkvIB0PUb'
   },
   {
-    url: 'https://soundcloud.com/tmsnetwork',
-    title: 'TMSNetwork',
-    id: 'ryMvyrNIb'
+    url: 'https://www.hum4n01d.me',
+    title: 'Hum4n01d',
+    id: 'r1182vLUW'
   },
   {
-    url: 'https://soundcloud.com/orcal',
-    title: 'Orcal',
-    id: 'By1_yBNI-'
-  },
-  {
-    url: 'https://soundcloud.com/d3rn',
-    title: 'D3RN',
-    id: 'rJC_JHEUb'
+    url: 'https://duckduckgo.com',
+    title: 'DuckDuckGo',
+    id: 'ryc8hv8UW'
   }
 ]

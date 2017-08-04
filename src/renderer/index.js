@@ -1,15 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom'
+import isDev from 'electron-is-dev'
+import { AppContainer } from 'react-hot-loader'
 
 import Store from './store'
 import App from './components/App'
 
 const store = new Store()
 
-ReactDOM.render(
+render(
   <App 
-  tabs={store.get('tabs')} 
-  activeTab={store.get('activeTab')} 
+    tabs={store.get('tabs')} 
+    activeTab={store.get('activeTab')} 
   />,
   document.getElementById('root')
 )

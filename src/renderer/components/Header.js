@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
-import NavButton from './NavButton'
+import Nav from './Nav'
 import Favicon from './Favicon'
 import Tab from './Tab'
 import TabNavWrapper from './TabNavWrapper'
@@ -23,10 +23,6 @@ const HeaderWrapper = styled.header`
     padding-left: 70px;
   `: ``}
 `
-const Nav = styled.nav`
-  display: flex;
-  padding: 5px;
-`
 const TabLabel = styled.p`
   display: none;
   
@@ -37,10 +33,7 @@ const TabLabel = styled.p`
 
 export default props => (
   <HeaderWrapper {...props}>
-    <Nav>
-      <NavButton>&#9664;</NavButton>
-      <NavButton>&#9654;</NavButton>
-    </Nav>
+    <Nav onNavButtonClick={props.onNavButtonClick} loading={props.loading}/>
     <TabNavWrapper>
       {props.tabs.map(tab => (
         <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={props.activeTab === tab.id}>

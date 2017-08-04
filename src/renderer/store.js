@@ -2,7 +2,7 @@
 import {join} from 'path'
 import {readFileSync, writeFileSync} from 'fs'
 
-import {initalDevTabs} from './config'
+import {initialDevTabs} from './config'
 
 const {remote} = window.require('electron')
 
@@ -16,8 +16,8 @@ export default class Store {
       this.data = JSON.parse(readFileSync(this.configFile))
     } catch(e) {
       this.data = {
-        tabs: initalDevTabs,
-        activeTab: 'By1_yBNI-'
+        tabs: initialDevTabs,
+        activeTab: initialDevTabs[1].id
       }
       this.update()
     }
