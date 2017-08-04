@@ -2,15 +2,15 @@
 import React, {Component} from 'react'
 import styled, {injectGlobal} from 'styled-components'
 
-const {remote} = window.require('electron')
-
 import Store from '../store'
-
-const store = new Store()
-
 import Header from './Header'
 import TabPanels from './TabPanels'
 
+const {remote} = window.require('electron')
+
+const store = new Store()
+
+// eslint-disable-next-line
 injectGlobal`
   body {
     margin: 0;

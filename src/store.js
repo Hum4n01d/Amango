@@ -1,10 +1,8 @@
-// import {remote} from 'electron'
-import {join} from 'path'
-import {readFileSync, writeFileSync} from 'fs'
-
 import {initialDevTabs} from './config'
 
 const {remote} = window.require('electron')
+const {join} = window.require('path')
+const {readFileSync, writeFileSync} = window.require('fs')
 
 export default class Store {
   constructor() {

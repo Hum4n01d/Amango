@@ -16,7 +16,7 @@ export default props => {
   
   return (
     <Favicon>
-      <img src={url}/>
+      <img src={url} alt="Favicon"/>
     </Favicon>
   )
 }
