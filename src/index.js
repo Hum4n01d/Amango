@@ -1,8 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
-import isDev from 'electron-is-dev'
-import { AppContainer } from 'react-hot-loader'
 
+import registerServiceWorker from './registerServiceWorker'
 import Store from './store'
 import App from './components/App'
 
@@ -15,8 +14,4 @@ render(
   />,
   document.getElementById('root')
 )
-
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept()
-}
+registerServiceWorker()
