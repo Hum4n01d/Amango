@@ -1,6 +1,10 @@
 {
   "name": "amango",
   "version": "1.0.0",
+  "description": "Manage your accounts",
+  "main": "src/electronMain.js",
+  "author": "Hum4n01d <hum4n01d@icloud.com>",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
