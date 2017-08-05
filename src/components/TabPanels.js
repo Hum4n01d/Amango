@@ -15,12 +15,23 @@ const WebViewWrapper = styled.div`
 `
 
 export default class TabPanels extends Component {
+  constructor(props) {
+    super(props)
+
+    this.webviews = []
+    this.executeJavaScript = this.executeJavaScript.bind(this)
+  }
+  executeJavaScript(id, javaScript) {
+    const webview = this.webviews.find(webview => webview.props.id === id)
+
+    webview.executeJavaScript(javaScript)
+  }
   render() {
     return (
       <div>
         {this.props.tabs.map(tab => (
           <WebViewWrapper active={tab.active} key={tab.id}>
-            <WebView src={tab.url} partition={`persist:${tab.id}`}/>
+            <WebView src={tab.url} partition={`persist:${tab.id}`} id={tab.id} ref={webview => this.webviews.push(webview)}/>
           </WebViewWrapper>
         ))}
       </div>

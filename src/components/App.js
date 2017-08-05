@@ -64,7 +64,9 @@ export default class App extends Component {
     store.set('tabs', updatedTabs)
   }
   onNavButtonClick(direction) {
-    console.log(`Moving history in direction ${direction}`)  
+    const activeTab = this.state.tabs.find(tab => tab.active)
+   
+    this.TabPanels.executeJavaScript(activeTab.id, `window.history.go(${direction})`)
   }
   render() {
     const sharedProps = {
@@ -78,7 +80,9 @@ export default class App extends Component {
           onTabSelect={this.onTabSelect} 
           onNavButtonClick={this.onNavButtonClick}
         />
-        <TabPanels {...sharedProps}/>
+        <TabPanels {...sharedProps} 
+          ref={TabPanels => this.TabPanels = TabPanels}
+        />
       </AppWrapper>
     )
   }
