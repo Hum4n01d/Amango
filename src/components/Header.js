@@ -36,7 +36,7 @@ export default props => (
     <Nav onNavButtonClick={props.onNavButtonClick} loading={props.loading}/>
     <TabNavWrapper>
       {props.tabs.map(tab => (
-        <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={props.activeTab === tab.id}>
+        <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={tab.active}>
           <Favicon url={tab.url}/>
           <TabLabel>{tab.title}</TabLabel>
         </Tab>

@@ -23,16 +23,22 @@ export let initialDevTabs = [
   {
    url: 'https://example.com/' ,
    title: 'Example',
-   id: 'rkvIB0PUb'
+   id: 'rkvIB0PUb',
+   active: true,
+   loading: true
   },
   {
     url: 'https://www.hum4n01d.me',
     title: 'Hum4n01d',
-    id: 'r1182vLUW'
+    id: 'r1182vLUW',
+    active: false,
+    loading: true
   },
   {
     url: 'https://duckduckgo.com',
     title: 'DuckDuckGo',
-    id: 'ryc8hv8UW'
+    id: 'ryc8hv8UW',
+    loading: true,
+    active: false
   }
 ]

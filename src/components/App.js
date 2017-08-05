@@ -51,10 +51,17 @@ export default class App extends Component {
     })
   }
   onTabSelect(id) {
+    let updatedTabs = this.state.tabs
+
+    updatedTabs.find(tab => tab.active).active = false
+
+    updatedTabs.find(tab => tab.id === id).active = true
+
     this.setState({
-      activeTab: id
+      tabs: updatedTabs
     })
-    store.set('activeTab', id)
+
+    store.set('tabs', updatedTabs)
   }
   onNavButtonClick(direction) {
     console.log(`Moving history in direction ${direction}`)  

@@ -19,7 +19,7 @@ export default class TabPanels extends Component {
     return (
       <div>
         {this.props.tabs.map(tab => (
-          <WebViewWrapper active={this.props.activeTab === tab.id} key={tab.id}>
+          <WebViewWrapper active={tab.active} key={tab.id}>
             <WebView src={tab.url} partition={`persist:${tab.id}`}/>
           </WebViewWrapper>
         ))}

@@ -37,7 +37,7 @@ export default props => (
       <NavButton onClick={() => props.onNavButtonClick(1)}>&#9654;</NavButton>
     </NavButtonsWrapper>
     <ReloadStatus>
-      <Loader size={20} loading={props.loading}/>
+      <Loader size={20} loading={true}/>
     </ReloadStatus>
   </Nav>
 )
