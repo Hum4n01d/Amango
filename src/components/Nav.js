@@ -18,6 +18,14 @@ const NavButton = styled.button`
   &:first-child {
     margin-right: 1px;
   }
+  
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+    background-color: ${colors.navigationButtonTextColorActive}
+  }
 `
 const Nav = styled.nav`
   display: flex;

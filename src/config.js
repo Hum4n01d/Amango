@@ -4,6 +4,7 @@ export let colors = {
   // Header
   navigationButtonBackground: '#f9f9f9',
   navigationButtonTextColor: '#808080',
+  navigationButtonTextColorActive: '#e2e2e2',
   navigationButtonTextColorDisabled: '#a2a2a2',
   
   // Tab Navigation

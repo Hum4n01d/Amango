@@ -33,7 +33,7 @@ export default class TabPanels extends Component {
           <WebViewWrapper active={tab.active} key={tab.id}>
             <WebView src={tab.url} partition={`persist:${tab.id}`} id={tab.id} ref={webview => this.webviews.push(webview)}/>
           </WebViewWrapper>
-        ))}
+        ))}  
       </div>
     )
   }
