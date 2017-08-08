@@ -43,3 +43,27 @@ export let initialDevTabs = [
     active: false
   }
 ]
+
+export let soundcloudTabs = [
+  {
+   url: 'https://soundcloud.com/hum4n01dmusic',
+   title: 'Hum4n01d',
+   id: 'rkvIB0PUb',
+   active: true,
+   loading: true
+  },
+  {
+    url: 'https://soundcloud.com/hum4n01dalt',
+    title: 'Hum4n01dAlt',
+    id: 'r1182vLUW',
+    active: false,
+    loading: true
+  },
+  {
+    url: 'https://soundcloud.com/tmsnetwork',
+    title: 'TMSNetwork',
+    id: 'ryc8hv8UW',
+    loading: true,
+    active: false
+  }
+]
