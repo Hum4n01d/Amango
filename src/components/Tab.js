@@ -4,6 +4,7 @@ import {colors} from '../config'
 
 const Tab = styled.div`
   flex-grow: 1;
+  margin: 5px 0;
 
   cursor: pointer;
   display: flex;
