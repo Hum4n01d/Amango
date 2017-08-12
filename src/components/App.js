@@ -32,6 +32,7 @@ export default class App extends Component {
     this.updateFullScreen = this.updateFullScreen.bind(this)
     this.onTabSelect = this.onTabSelect.bind(this)
     this.onNavButtonClick = this.onNavButtonClick.bind(this)
+    this.onWebViewLoaded = this.onWebViewLoaded.bind(this)
   }
   getCurrentWindow() {
     return remote.getCurrentWindow()
@@ -68,6 +69,17 @@ export default class App extends Component {
    
     this.TabPanels.executeJavaScript(activeTab.id, `window.history.go(${direction})`)
   }
+  onWebViewLoaded(id) {
+    const updatedTabs = this.state.tabs
+    
+    const tabThatFinishedLoading = updatedTabs.find(tab => tab.id === id)
+
+    tabThatFinishedLoading.loading = false
+
+    this.setState({
+      tabs: updatedTabs
+    })
+  }
   render() {
     const sharedProps = {
       tabs: this.state.tabs,
@@ -82,6 +94,7 @@ export default class App extends Component {
         />
         <TabPanels {...sharedProps} 
           ref={TabPanels => this.TabPanels = TabPanels}
+          onWebViewLoaded={this.onWebViewLoaded}
         />
       </AppWrapper>
     )

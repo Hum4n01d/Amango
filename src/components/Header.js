@@ -33,7 +33,7 @@ const TabLabel = styled.p`
 
 export default props => (
   <HeaderWrapper {...props}>
-    <Nav onNavButtonClick={props.onNavButtonClick} loading={props.loading}/>
+    <Nav tabs={props.tabs} onNavButtonClick={props.onNavButtonClick} />
     <TabNavWrapper>
       {props.tabs.map(tab => (
         <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={tab.active}>

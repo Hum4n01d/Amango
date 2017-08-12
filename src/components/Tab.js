@@ -12,7 +12,6 @@ const Tab = styled.div`
 
   font-family: 'Exo 2';
   border-left: 1px solid ${colors.tabDividerColor};
-  margin: 5px 0;
 
   ${props => props.active && css`
     background-color: ${colors.activeTabColor};
