@@ -7,8 +7,11 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
+    minWidth: 400,
+    minHeight: 500,
     show: false,
-    titleBarStyle: 'hidden-inset'
+    titleBarStyle: 'hidden-inset',
+    closable: false
   })
 
   installExtension(REACT_DEVELOPER_TOOLS)
