@@ -23,7 +23,7 @@ const AppWrapper = styled.div`
 export default class App extends Component {
   state = {
     fullScreen: this.isFullScreen(),
-    tabs: this.props.tabs,
+    tabs: [],
     activeTab: this.props.activeTab
   }
   constructor(props) {
@@ -34,17 +34,23 @@ export default class App extends Component {
     this.onNavButtonClick = this.onNavButtonClick.bind(this)
     this.onWebViewLoaded = this.onWebViewLoaded.bind(this)
   }
-  getCurrentWindow() {
-    return remote.getCurrentWindow()
+  componentWillMount() {
+    const updatedTabs = this.props.tabs.map(tab => {
+      return {...tab, loading: true}
+    })
+
+    this.setState({
+      tabs: updatedTabs
+    })
   }
   componentDidMount() {
-    const win = this.getCurrentWindow()
+    const win = remote.getCurrentWindow()
 
     win.on('enter-full-screen', this.updateFullScreen)
     win.on('leave-full-screen', this.updateFullScreen)
   }
   isFullScreen() {
-    return this.getCurrentWindow().isFullScreen()
+    return remote.getCurrentWindow().isFullScreen()
   }
   updateFullScreen() {
     this.setState({

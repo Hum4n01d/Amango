@@ -31,7 +31,7 @@ const TabLabel = styled.p`
   }
 `
 
-export default props => (
+const Header = props => (
   <HeaderWrapper {...props}>
     <Nav tabs={props.tabs} onNavButtonClick={props.onNavButtonClick} />
     <TabNavWrapper>
@@ -44,3 +44,5 @@ export default props => (
     </TabNavWrapper>
   </HeaderWrapper>
 )
+
+export default Header

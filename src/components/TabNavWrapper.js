@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const TabNavWrapper = styled.div`
@@ -9,8 +8,4 @@ const TabNavWrapper = styled.div`
   flex-grow: 1;
 `
 
-export default props => (
-  <TabNavWrapper>
-    {props.children}
-  </TabNavWrapper>
-)
+export default TabNavWrapper

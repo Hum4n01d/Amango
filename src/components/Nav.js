@@ -4,7 +4,7 @@ import {MoonLoader as Loader} from 'react-spinners';
 
 import NavButton from './NavButton'
 
-const Nav = styled.nav`
+const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   margin-left: 5px;
@@ -22,11 +22,11 @@ const ReloadStatus = styled.div`
   align-items: center;
 `
 
-export default props => {
+const Nav = props => {
   const activeTab = props.tabs.find(tab => tab.active)
 
   return (
-    <Nav>
+    <NavWrapper>
       <div>
         <NavButton onClick={() => props.onNavButtonClick(-1)}>&#9664;</NavButton>
         <NavButton onClick={() => props.onNavButtonClick(1)}>&#9654;</NavButton>
@@ -34,6 +34,8 @@ export default props => {
       <ReloadStatus>
         <Loader size={20} loading={activeTab.loading}/>
       </ReloadStatus>
-    </Nav>
+    </NavWrapper>
   )
 }
+
+export default Nav

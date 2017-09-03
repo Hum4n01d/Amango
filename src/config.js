@@ -20,7 +20,7 @@ export let colors = {
   closeTabTextColor: '#000000',
 }
 
-export let initialDevTabsnot = [
+export let initialDevTabs = [
   {
    url: 'https://example.com/' ,
    title: 'Example',
@@ -29,8 +29,8 @@ export let initialDevTabsnot = [
    loading: true
   },
   {
-    url: 'https://www.hum4n01d.me',
-    title: 'Hum4n01d',
+    url: 'http://auheauge.com',
+    title: 'Auheauge',
     id: 'r1182vLUW',
     active: false,
     loading: true
@@ -44,7 +44,7 @@ export let initialDevTabsnot = [
   }
 ]
 
-export let initialDevTabs = [
+export let soundcloudTabs = [
   {
    url: 'https://soundcloud.com/hum4n01dmusic',
    title: 'Hum4n01d',

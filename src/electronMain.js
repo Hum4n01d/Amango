@@ -10,8 +10,7 @@ function createWindow () {
     minWidth: 400,
     minHeight: 500,
     show: false,
-    titleBarStyle: 'hidden-inset',
-    closable: false
+    titleBarStyle: 'hidden-inset'
   })
 
   installExtension(REACT_DEVELOPER_TOOLS)
