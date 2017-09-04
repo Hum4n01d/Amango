@@ -1,7 +1,10 @@
 const {BrowserWindow, app} = require('electron')
 const {default: installExtension, REACT_DEVELOPER_TOOLS} = require('electron-devtools-installer')
+const waitOn = require('wait-on')
 
 let mainWindow
+
+const APP_URL = 'http://localhost:5000'
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -15,7 +18,7 @@ function createWindow () {
 
   installExtension(REACT_DEVELOPER_TOOLS)
 
-  mainWindow.loadURL(`http://localhost:5000`)
+  mainWindow.loadURL(APP_URL)
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
@@ -29,7 +32,19 @@ function createWindow () {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  console.log(`Waiting on ${APP_URL}`)
+
+  // Wait for app to be available
+  waitOn({
+    resources: [APP_URL]
+  }, function (err) {
+    if (err) { return console.error(err) }
+    
+    console.log(`${APP_URL} is now available`)
+    createWindow()
+  })
+})
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
