@@ -1,39 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
-import {MoonLoader as Loader} from 'react-spinners';
 
-import NavButton from './NavButton'
+import {BackForwardWrapper, BackForwardButton, ReloadButton} from './NavButtons'
+import {LoadingIcon} from './Icons'
 
 const NavWrapper = styled.nav`
   display: flex;
-  align-items: center;
-  margin-left: 5px;
 
-  > div {
-    margin-right: 10px;
+  > div,
+  > button {
+    margin-right: 5px;
 
-    &:first-child {
-      margin-left: 5px;
-    }
   }
-`
-const ReloadStatus = styled.div`
-  display: flex;
-  align-items: center;
 `
 
 const Nav = props => {
-  const activeTab = props.tabs.find(tab => tab.active)
+  const isLoading = true //props.tabs.find(tab => tab.active).loading
 
   return (
     <NavWrapper>
-      <div>
-        <NavButton onClick={() => props.onNavButtonClick(-1)}>&#9664;</NavButton>
-        <NavButton onClick={() => props.onNavButtonClick(1)}>&#9654;</NavButton>
-      </div>
-      <ReloadStatus>
-        <Loader size={20} loading={activeTab.loading}/>
-      </ReloadStatus>
+      <BackForwardWrapper>
+        <BackForwardButton onClick={() => props.onNavButtonClick(-1)}>
+          &#9664;
+        </BackForwardButton>
+
+        <BackForwardButton onClick={() => props.onNavButtonClick(1)}>
+          &#9654;
+        </BackForwardButton>
+      </BackForwardWrapper>
+
+      <ReloadButton size={20} loading={isLoading}>
+        <LoadingIcon/>
+      </ReloadButton>
     </NavWrapper>
   )
 }

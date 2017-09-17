@@ -3,46 +3,39 @@ import styled from 'styled-components'
 
 import Nav from './Nav'
 import Favicon from './Favicon'
-import Tab from './Tab'
-import TabNavWrapper from './TabNavWrapper'
+import {TabNav, Tab, TabLabel} from './Tab'
 
 import {colors} from '../config'
 
-const HeaderWrapper = styled.header`
-  height: 37px;
+const Header = styled.header`
+  // height: 37px;
+
+  display: flex;
+  background-color: ${colors.backgroundColor};
+
+  padding: 5px;
 
   // Make window draggable by header
   -webkit-user-select: none;
   -webkit-app-region: drag;
 
-  display: flex;
-  background-color: ${colors.backgroundColor};
-
   // Make space for traffic lights in non-fullscreen
   ${props => !props.fullscreen ? `
-    padding-left: 70px;
+    padding-left: 75px;
   `: ``}
 `
-const TabLabel = styled.p`
-  display: none;
-  
-  @media screen and (min-width: 500px) {
-    display: block;
-  }
-`
 
-const Header = props => (
-  <HeaderWrapper {...props}>
+export default props => (
+  <Header {...props}>
     <Nav tabs={props.tabs} onNavButtonClick={props.onNavButtonClick} />
-    <TabNavWrapper>
+    
+    <TabNav>
       {props.tabs.map(tab => (
         <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={tab.active}>
           <Favicon url={tab.url}/>
           <TabLabel>{tab.title}</TabLabel>
         </Tab>
       ))}
-    </TabNavWrapper>
-  </HeaderWrapper>
+    </TabNav>
+  </Header>
 )
-
-export default Header

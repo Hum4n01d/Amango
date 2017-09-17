@@ -2,9 +2,15 @@ import styled, {css} from 'styled-components'
 
 import {colors} from '../config'
 
+const TabNav = styled.div`
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+`
 const Tab = styled.div`
   flex-grow: 1;
-  margin: 5px 0;
 
   cursor: pointer;
   display: flex;
@@ -18,5 +24,13 @@ const Tab = styled.div`
     background-color: ${colors.activeTabColor};
   `}
 `
+const TabLabel = styled.p`
+  margin: 0;
+  display: none;
 
-export default Tab
+  @media screen and (min-width: 500px) {
+    display: block;
+  }
+`
+
+export {TabNav, Tab, TabLabel}

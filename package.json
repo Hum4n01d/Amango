@@ -11,7 +11,8 @@
     "react-electron-web-view": "^2.0.1",
     "react-scripts": "1.0.10",
     "react-spinners": "^0.0.29",
-    "styled-components": "^2.1.2"
+    "styled-components": "^2.1.2",
+    "wait-on": "^2.0.2"
   },
   "scripts": {
     "server": "BROWSER=none react-scripts start",
@@ -22,7 +23,6 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "create-react-app-hot-loader": "^0.1.3",
     "electron": "^1.6.11",
     "electron-devtools-installer": "^2.2.0"
   }
