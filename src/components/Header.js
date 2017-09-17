@@ -17,9 +17,9 @@ const Header = styled.header`
   -webkit-app-region: drag;
 
   // Make space for traffic lights in non-fullscreen
-  ${props => !props.fullscreen ? `
+  ${props => !props.fullscreen && `
     padding-left: 75px;
-  `: ``}
+  `}
 `
 const Favicon = styled.img`
   height: 16px;

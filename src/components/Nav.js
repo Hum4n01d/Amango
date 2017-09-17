@@ -10,13 +10,10 @@ const NavWrapper = styled.nav`
   > div,
   > button {
     margin-right: 5px;
-
   }
 `
 
 const Nav = props => {
-  const isLoading = true //props.tabs.find(tab => tab.active).loading
-
   return (
     <NavWrapper>
       <BackForwardWrapper>
@@ -29,7 +26,7 @@ const Nav = props => {
         </BackForwardButton>
       </BackForwardWrapper>
 
-      <ReloadButton size={20} loading={isLoading}>
+      <ReloadButton size={20} loading={props.tabs.find(tab => tab.active).loading}>
         <LoadingIcon/>
       </ReloadButton>
     </NavWrapper>

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 import {colors} from '../config'
 
@@ -25,16 +25,32 @@ const BackForwardWrapper = styled.div`
 const BackForwardButton = NavButton.extend`
   color: ${colors.navigationButtonTextColor};
 `
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
 const ReloadButton = styled.button`
   background-color: transparent;
   border: 0;
   padding: 0 5px;
+
+  transition: 0.5s;
+  transform: rotate(0deg);
 
   svg {
     fill: ${colors.navigationButtonTextColor};
     width: ${props => props.size}px;
     height: ${props => props.size}px;
   }
+
+  ${props => props.loading && `
+    animation: ${spin} 0.5s linear infinite;
+  `}
 `
 
 export {NavButton, BackForwardWrapper, BackForwardButton, ReloadButton}
