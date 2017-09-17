@@ -16,9 +16,7 @@ injectGlobal`
     margin: 0;
   }
 `
-const AppWrapper = styled.div`
-
-`
+const AppWrapper = styled.div``
 
 export default class App extends Component {
   state = {
@@ -61,7 +59,6 @@ export default class App extends Component {
     let updatedTabs = this.state.tabs
 
     updatedTabs.find(tab => tab.active).active = false
-
     updatedTabs.find(tab => tab.id === id).active = true
 
     this.setState({
@@ -77,7 +74,6 @@ export default class App extends Component {
   }
   onWebViewLoaded(id) {
     const updatedTabs = this.state.tabs
-    
     const tabThatFinishedLoading = updatedTabs.find(tab => tab.id === id)
 
     tabThatFinishedLoading.loading = false

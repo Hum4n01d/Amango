@@ -2,14 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Nav from './Nav'
-import Favicon from './Favicon'
 import {TabNav, Tab, TabLabel} from './Tab'
 
 import {colors} from '../config'
 
 const Header = styled.header`
-  // height: 37px;
-
   display: flex;
   background-color: ${colors.backgroundColor};
 
@@ -24,6 +21,10 @@ const Header = styled.header`
     padding-left: 75px;
   `: ``}
 `
+const Favicon = styled.img`
+  height: 16px;
+  margin-right: 5px;
+`
 
 export default props => (
   <Header {...props}>
@@ -31,8 +32,15 @@ export default props => (
     
     <TabNav>
       {props.tabs.map(tab => (
-        <Tab key={tab.id} onClick={() => props.onTabSelect(tab.id)} active={tab.active}>
-          <Favicon url={tab.url}/>
+        <Tab 
+          key={tab.id} 
+          onClick={() => props.onTabSelect(tab.id)} 
+          active={tab.active}>
+
+          <Favicon 
+            src={`http://www.google.com/s2/favicons?domain=${tab.url}`} 
+            alt="Favicon"/>
+
           <TabLabel>{tab.title}</TabLabel>
         </Tab>
       ))}
