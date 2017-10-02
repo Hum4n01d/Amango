@@ -51,6 +51,10 @@ const ReloadButton = styled.button`
   ${props => props.loading && `
     animation: ${spin} 0.5s linear infinite;
   `}
+
+  &:focus {
+    outline: none;
+  }
 `
 
 export {NavButton, BackForwardWrapper, BackForwardButton, ReloadButton}
