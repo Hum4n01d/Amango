@@ -28,7 +28,7 @@ const Favicon = styled.img`
 
 export default props => (
   <Header {...props}>
-    <Nav tabs={props.tabs} onNavButtonClick={props.onNavButtonClick} />
+    <Nav tabs={props.tabs} onNavButtonClick={props.onNavButtonClick} onReloadClick={props.onReloadClick}/>
     
     <TabNav>
       {props.tabs.map(tab => (

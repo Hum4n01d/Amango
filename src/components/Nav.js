@@ -27,7 +27,7 @@ const Nav = props => {
         </BackForwardButton>
       </BackForwardWrapper>
 
-      <ReloadButton size={20} loading={props.tabs.find(tab => tab.active).loading}>
+      <ReloadButton size={20} loading={props.tabs.find(tab => tab.active).loading} onClick={() => props.onReloadClick(props.tabs.find(tab => tab.active).id)}>
         <LoadingIcon/>
       </ReloadButton>
     </NavWrapper>

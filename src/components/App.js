@@ -27,10 +27,12 @@ export default class App extends Component {
   constructor(props) {
     super(props)
 
+    this.getCurrentTab = this.getCurrentTab.bind(this)
     this.updateFullScreen = this.updateFullScreen.bind(this)
     this.onTabSelect = this.onTabSelect.bind(this)
     this.onNavButtonClick = this.onNavButtonClick.bind(this)
     this.onWebViewLoaded = this.onWebViewLoaded.bind(this)
+    this.onReloadClick = this.onReloadClick.bind(this)
   }
   componentWillMount() {
     const updatedTabs = this.props.tabs.map(tab => {
@@ -46,6 +48,9 @@ export default class App extends Component {
 
     win.on('enter-full-screen', this.updateFullScreen)
     win.on('leave-full-screen', this.updateFullScreen)
+  }
+  getCurrentTab() {
+    return this.state.tabs.find(tab => tab.active)    
   }
   isFullScreen() {
     return remote.getCurrentWindow().isFullScreen()
@@ -68,9 +73,22 @@ export default class App extends Component {
     store.set('tabs', updatedTabs)
   }
   onNavButtonClick(direction) {
-    const activeTab = this.state.tabs.find(tab => tab.active)
+    const activeTab = this.getCurrentTab()
    
     this.TabPanels.executeJavaScript(activeTab.id, `window.history.go(${direction})`)
+  }
+  onReloadClick(id) {
+    const activeTab = this.getCurrentTab()
+    const updatedTabs = this.state.tabs
+
+    const tabThatIsReloading = updatedTabs.find(tab => tab.id === id)
+    tabThatIsReloading.loading = true
+
+    this.setState({
+      tabs: updatedTabs
+    })
+
+    this.TabPanels.executeJavaScript(activeTab.id, `window.location.reload()`)    
   }
   onWebViewLoaded(id) {
     const updatedTabs = this.state.tabs
@@ -93,6 +111,7 @@ export default class App extends Component {
           fullscreen={this.state.fullScreen} 
           onTabSelect={this.onTabSelect} 
           onNavButtonClick={this.onNavButtonClick}
+          onReloadClick={this.onReloadClick}
         />
         <TabPanels {...sharedProps} 
           ref={TabPanels => this.TabPanels = TabPanels}
