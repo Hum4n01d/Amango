@@ -11,7 +11,7 @@ const TabNav = styled.div`
 `
 const Tab = styled.div`
   flex-grow: 1;
-
+  padding: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;

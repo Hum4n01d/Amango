@@ -6,7 +6,7 @@ import {LoadingIcon} from './Icons'
 
 const NavWrapper = styled.nav`
   display: flex;
-  margin-right: 5px;
+  padding: 5px;
 
   > div,
   > button {

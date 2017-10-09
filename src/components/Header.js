@@ -10,8 +10,6 @@ const Header = styled.header`
   display: flex;
   background-color: ${colors.backgroundColor};
 
-  padding: 5px;
-
   // Make window draggable by header
   -webkit-user-select: none;
   -webkit-app-region: drag;
